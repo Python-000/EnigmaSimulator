@@ -9,7 +9,7 @@ const char rot_m[] = "AJDKSIRUXBLHWTMCQGZNPYFVOE";  //Middle rotor wiring
 const char rot_l[] = "BDFHJLCPRTXVZNYEIWGAKMUSQO";  //Left rotor wiring
 const char plugs[] = "CXAGLMDHNJUEFISVQROYKPZBTW";  //Plug board settings                       #Default Settings
 const char refl[]  = "MCBYTOQVIJKLAPFNGWUESHRZDX";  //Reflector settings                        #Default Settings
-int key[] = {1,2,3};                                //Rotor initial position [L,M,R] = [1,2,3]  #Default Values
+int key[] = {1, 2, 4};                              //Rotor initial position [L,M,R] = [1,2,3]  #Default Values
 
 int mod(int x)                                      //Modulus function
 {
@@ -75,11 +75,17 @@ char enigma(char x)
 int main()                                          //Main() function
 {
     string input;
+    for (int j=0; j<3; j++)
+    {
+        cout<<"\n ENTER KEY "<<j<<" : ";
+        cin>>*(key+j);
+    }
     cout<<"\n USE UPPERCASE ONLY\n\n INPUT  : ";
     cin>>input;
     int len = input.length();
     cout<<"\n OUTPUT : ";
     for (int i=0; i<len; i++)
         cout<<enigma(input[i]);
+    cout<<"\n ";cin>>input;
     return 0;
 }
